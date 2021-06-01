@@ -22,8 +22,8 @@ class Config:
     POSTS_PER_PAGE = 10
     # 支持的语言
     LANGUAGES = ['zh', 'en', 'es']
-    BDAPPID = os.environ.get('BDAPPID') #'20210530000848418'
-    BDKEY = os.environ.get('BDKEY')   #'GhnrD_b4mX8PlwBM4gt0'
+    BDAPPID = os.environ.get('BDAPPID')
+    BDKEY = os.environ.get('BDKEY')
 
     ELASTICPWD = 'elasticsearchpwd'
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
