@@ -25,6 +25,3 @@ class Config:
     BDAPPID = os.environ.get('BDAPPID')
     BDKEY = os.environ.get('BDKEY')
 
-    ELASTICPWD = 'elasticsearchpwd'
-    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
-    ELASTICSEARCH_AUTH = os.environ.get('ELASTICSEARCH_AUTH')

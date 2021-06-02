@@ -30,16 +30,14 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     db.init_app(app)
-    migrate.init_app(app)
+    migrate.init_app(app, db)
     login.init_app(app)
     moment.init_app(app)
     babel.init_app(app)
     mail.init_app(app)
     bootstrap.init_app(app)
 
-    app.elasticsearch = Elasticsearch(
-        [app.config['ELASTICSEARCH_URL']], http_auth=app.config['ELASTICSEARCH_AUTH']) \
-        if app.config['ELASTICSEARCH_URL'] and app.config['ELASTICSEARCH_AUTH'] else None
+    app.elasticsearch = None 
 
     # blueprints register
     from app.errors import bp as errors_bp

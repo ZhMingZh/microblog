@@ -1,2 +1,42 @@
 # Project exclude paths
-/blog/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+#i.mr.developer.cfg
+#.project
+#.pydevproject
+
+blogs
+app.db
+microblog.log*
+.flaskenv
