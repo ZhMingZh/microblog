@@ -47,6 +47,7 @@ def index():
 
 
 @bp.route('/user/<username>')
+@login_required
 def user(username):
     """个人主页"""
     user = User.query.filter_by(username=username).first_or_404()

@@ -13,21 +13,8 @@
                 {% if user == current_user %}
                 <p><a href="{{ url_for('main.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
                 {% elif not current_user.is_following(user) %}
-{#                <p>#}
-{#                    <form action="{{ url_for('follow', username=user.username) }}" method="post">#}
-{#                        {{ form.hidden_tag() }}#}
-{#                        {{ form.submit(value='Follow', class_='btn btn-default') }}#}
-{#                    </form>#}
-{#                </p>#}
-{#                {% else %}#}
-{#                <p>#}
-{#                    <form action="{{ url_for('unfollow', username=user.username) }}" method="post">#}
-{#                        {{ form.hidden_tag() }}#}
-{#                        {{ form.submit(value='Unfollow', class_='btn btn-default') }}#}
-{#                    </form>#}
-{#                </p>#}
                    <p><a href="{{ url_for('main.follow', username=user.username) }}">{{ _('Follow') }}</a></p>
-                    {% else %}
+                {% else %}
                     <p><a href="{{ url_for('main.unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
                 {% endif %}
             </td>

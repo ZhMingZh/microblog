@@ -24,4 +24,6 @@ class Config:
     LANGUAGES = ['zh', 'en', 'es']
     BDAPPID = os.environ.get('BDAPPID')
     BDKEY = os.environ.get('BDKEY')
+    # 邮件发送者
+    ADMINS = os.environ.get('ADMINS')
 
