@@ -214,7 +214,7 @@ msgstr "用户"
 
 #: app/templates/user.html:10
 msgid "Last seen on"
-msgstr "上次访问时间"
+msgstr "最后上线"
 
 #: app/templates/user.html:11
 #, python-format
