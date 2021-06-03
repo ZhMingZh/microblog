@@ -20,7 +20,7 @@ class Config:
     # 每页显示的数据
     POSTS_PER_PAGE = 10
     # 支持的语言
-    LANGUAGES = ['zh', 'en', 'es']
+    LANGUAGES = ['zh', 'en']
     BDAPPID = os.environ.get('BDAPPID')
     BDKEY = os.environ.get('BDKEY')
     # 邮件发送者
