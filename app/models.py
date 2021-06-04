@@ -29,6 +29,12 @@ class User(UserMixin, db.Model):
                                secondaryjoin=(followers.c.followed_id == id),
                                backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
+    messages_sent = db.relationship('Message', foreign_keys='Message.sender_id',
+                                    backref='author', lazy='dynamic')
+    messages_received = db.relationship('Message', foreign_keys='Message.recipient_id',
+                                        backref='recipient', lazy='dynamic')
+    last_message_read_time = db.Column(db.DateTime)
+
     def set_password(self, password):
         """设置密码"""
         self.password_hash = generate_password_hash(password)
@@ -82,6 +88,11 @@ class User(UserMixin, db.Model):
                                    (followers.c.followed_id == Post.user_id)).filter(followers.c.follower_id == self.id)
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.time_stamp.desc())
+
+    def new_messages(self):
+        last_read_time = self.last_message_read_time or datetime(1999, 1, 1)
+        return Message.query.filter_by(recipient=self).filter(
+            Message.time_stamp > last_read_time).count()
 
 
 class SearchableMixin:
