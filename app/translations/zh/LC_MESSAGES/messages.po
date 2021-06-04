@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-31 22:45+0800\n"
+"POT-Creation-Date: 2021-06-04 20:58+0800\n"
 "PO-Revision-Date: 2021-05-30 19:21+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -113,7 +113,7 @@ msgstr "提交"
 msgid "Say something"
 msgstr "说些什么"
 
-#: app/main/forms.py:33 app/main/routes.py:152
+#: app/main/forms.py:33 app/main/routes.py:153
 msgid "Search"
 msgstr "搜索"
 
@@ -125,37 +125,42 @@ msgstr "你的新动态已发布！"
 msgid "Home Page"
 msgstr "主页"
 
-#: app/main/routes.py:73
+#: app/main/routes.py:74
 msgid "Your changes have been saved."
 msgstr "你的更改已保存"
 
-#: app/main/routes.py:78 app/templates/edit_profile.html:5
+#: app/main/routes.py:79 app/templates/edit_profile.html:5
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
-#: app/main/routes.py:87 app/main/routes.py:104
+#: app/main/routes.py:88 app/main/routes.py:105
 #, fuzzy, python-format
 msgid "User %(username)s not found"
 msgstr "用户%(username)s不存在"
 
-#: app/main/routes.py:90
+#: app/main/routes.py:91
 msgid "You cannot follow yourself"
 msgstr "你不能关注自己"
 
-#: app/main/routes.py:94 app/main/routes.py:111
-#, fuzzy, python-format
+#: app/main/routes.py:95
+#, python-format
 msgid "You are following %(username)s!"
 msgstr "你正在关注%(username)s!"
 
-#: app/main/routes.py:107
+#: app/main/routes.py:108
 msgid "You cannot unfollow yourself"
 msgstr "你不能取消关注自己"
 
-#: app/main/routes.py:125 app/templates/base.html:24
+#: app/main/routes.py:112
+#, fuzzy, python-format
+msgid "You are unfollowing %(username)s!"
+msgstr "你已经取消关注%(username)s!"
+
+#: app/main/routes.py:126 app/templates/base.html:24
 msgid "Explore"
 msgstr "发现"
 
-#: app/templates/_post.html:23
+#: app/templates/_post.html:25
 msgid "Translate"
 msgstr "翻译"
 
@@ -179,7 +184,7 @@ msgstr "个人资料"
 msgid "Logout"
 msgstr "注销"
 
-#: app/templates/base.html:79
+#: app/templates/base.html:80
 msgid "Error: Could not contact server."
 msgstr "错误：不能链接服务器"
 
@@ -188,11 +193,11 @@ msgstr "错误：不能链接服务器"
 msgid "Hi, %(username)s!"
 msgstr "你好，%(username)s!"
 
-#: app/templates/index.html:20 app/templates/user.html:44
+#: app/templates/index.html:20 app/templates/user.html:31
 msgid "Newer posts"
 msgstr "新动态"
 
-#: app/templates/index.html:25 app/templates/user.html:49
+#: app/templates/index.html:25 app/templates/user.html:36
 msgid "Older posts"
 msgstr "旧动态"
 
@@ -208,33 +213,29 @@ msgstr "上一页"
 msgid "Next results"
 msgstr "下一页"
 
-#: app/templates/user.html:8
-msgid "User"
-msgstr "用户"
-
-#: app/templates/user.html:10
-msgid "Last seen on"
-msgstr "最后上线"
-
-#: app/templates/user.html:11
+#: app/templates/user.html:10 app/templates/user_popup.html:8
 #, python-format
 msgid "%(count)d followers"
 msgstr "%(count)d 粉丝"
 
-#: app/templates/user.html:12
+#: app/templates/user.html:11 app/templates/user_popup.html:9
 #, python-format
 msgid "%(count)d following"
 msgstr "%(count)d 关注"
+
+#: app/templates/user.html:12 app/templates/user_popup.html:10
+msgid "Last seen on"
+msgstr "最后上线"
 
 #: app/templates/user.html:14
 msgid "Edit your profile"
 msgstr "编辑个人资料"
 
-#: app/templates/user.html:29
+#: app/templates/user.html:16 app/templates/user_popup.html:13
 msgid "Follow"
 msgstr "关注"
 
-#: app/templates/user.html:31
+#: app/templates/user.html:18 app/templates/user_popup.html:15
 msgid "Unfollow"
 msgstr "取消"
 
@@ -279,4 +280,7 @@ msgstr "已通知管理员，很抱歉给您带来不便！"
 
 #~ msgid "%(when)s"
 #~ msgstr ""
+
+#~ msgid "User"
+#~ msgstr "用户"
 
