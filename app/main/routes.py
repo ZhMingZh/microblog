@@ -1,8 +1,8 @@
 from flask import render_template, flash, redirect, url_for, request, g, jsonify, current_app
 from app import db
-from app.main.forms import EditProfileForm, PostForm, SearchForm
+from app.main.forms import EditProfileForm, PostForm, SearchForm, MessageForm
 from flask_login import current_user, login_required
-from app.models import User, Post
+from app.models import User, Post, Message
 from datetime import datetime
 from flask_babel import _, get_locale
 from langdetect import detect
@@ -159,3 +159,18 @@ def search():
 def user_popup(username):
     user = User.query.filter_by(username=username).first_or_404()
     return render_template('user_popup.html', user=user)
+
+
+@bp.route('/send_message/<recipient>', methods=['GET', 'POST'])
+@login_required
+def send_message(recipient):
+    user = User.query.filter_by(username=recipient).first_or_404()
+    form = MessageForm()
+    if form.validate_on_submit():
+        msg = Message(author=current_user, recipient=user, body=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash(_('Your Message has been sent.'))
+        return redirect(url_for('main.user', username=recipient))
+    return render_template('send_message.html', title=_('Send Message'),
+                           form=form, recipient=recipient)
