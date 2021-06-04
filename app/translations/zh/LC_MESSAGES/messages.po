@@ -152,7 +152,6 @@ msgid "You cannot unfollow yourself"
 msgstr "你不能取消关注自己"
 
 #: app/main/routes.py:112
-#, fuzzy, python-format
 msgid "You are unfollowing %(username)s!"
 msgstr "你已经取消关注%(username)s!"
 
