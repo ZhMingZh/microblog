@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-06-05 02:16+0800\n"
+"POT-Creation-Date: 2021-06-05 15:46+0800\n"
 "PO-Revision-Date: 2021-05-30 19:21+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -117,7 +117,7 @@ msgstr "说些什么"
 msgid "Search"
 msgstr "搜索"
 
-#: app/main/forms.py:44
+#: app/main/forms.py:44 app/templates/messages.html:4
 msgid "Message"
 msgstr "消息内容"
 
@@ -172,6 +172,10 @@ msgstr "消息已发送"
 msgid "Send Message"
 msgstr "发送消息"
 
+#: app/main/routes.py:194 app/templates/base.html:40
+msgid "Messages"
+msgstr "通知"
+
 #: app/templates/_post.html:25
 msgid "Translate"
 msgstr "翻译"
@@ -188,15 +192,15 @@ msgstr "主页"
 msgid "Login"
 msgstr "登录"
 
-#: app/templates/base.html:39
+#: app/templates/base.html:51
 msgid "Profile"
 msgstr "个人资料"
 
-#: app/templates/base.html:40
+#: app/templates/base.html:52
 msgid "Logout"
 msgstr "注销"
 
-#: app/templates/base.html:80
+#: app/templates/base.html:92
 msgid "Error: Could not contact server."
 msgstr "错误：不能链接服务器"
 
@@ -212,6 +216,14 @@ msgstr "新动态"
 #: app/templates/index.html:25 app/templates/user.html:43
 msgid "Older posts"
 msgstr "旧动态"
+
+#: app/templates/messages.html:12
+msgid "Newer messages"
+msgstr "新通知"
+
+#: app/templates/messages.html:17
+msgid "Older messages"
+msgstr "旧通知"
 
 #: app/templates/search.html:4
 msgid "Search Results"

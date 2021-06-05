@@ -14,7 +14,7 @@ def login():
     """登入"""
     # 用户已登陆直接跳转到首页
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('main.index'))
     form = LoginForm()
     if form.validate_on_submit():
         # 查询用户是否存在和校验密码是否正确
