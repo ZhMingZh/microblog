@@ -175,7 +175,7 @@ class Notification(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     name = db.Column(db.String(128), index=True)
-    time_stamp = db.Column(db.Float, index=True, default=time)
+    time_stamp = db.Column(db.Integer, index=True, default=time)
     payload_json = db.Column(db.Text)
 
     def get_data(self):
