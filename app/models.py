@@ -8,6 +8,8 @@ from time import time
 import jwt
 from flask import current_app
 from app.search import add_to_index, remove_from_index, query_index
+import json
+from time import time
 
 
 followers = db.Table('followers',
@@ -34,6 +36,8 @@ class User(UserMixin, db.Model):
     messages_received = db.relationship('Message', foreign_keys='Message.recipient_id',
                                         backref='recipient', lazy='dynamic')
     last_message_read_time = db.Column(db.DateTime)
+
+    notifications = db.relationship('Notification', backref='user', lazy='dynamic')
 
     def set_password(self, password):
         """设置密码"""
@@ -93,6 +97,12 @@ class User(UserMixin, db.Model):
         last_read_time = self.last_message_read_time or datetime(1999, 1, 1)
         return Message.query.filter_by(recipient=self).filter(
             Message.time_stamp > last_read_time).count()
+
+    def add_notification(self, name, data):
+        self.notifications.filter_by(name=name).delete()
+        n = Notification(name=name, user=self, payload_json=json.dumps(data))
+        db.session.add(n)
+        return n
 
 
 class SearchableMixin:
@@ -159,6 +169,17 @@ class Message(db.Model):
 
     def __repr__(self):
         return '<Message {}>'.format(self.body)
+
+
+class Notification(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    name = db.Column(db.String(128), index=True)
+    time_stamp = db.Column(db.Float, index=True, default=time)
+    payload_json = db.Column(db.Text)
+
+    def get_data(self):
+        return json.loads(str(self.payload_json)) #这里为什么还需要用str？
 
 
 @login.user_loader

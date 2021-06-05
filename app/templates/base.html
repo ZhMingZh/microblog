@@ -140,5 +140,33 @@
         $('#message_count').css('visibility', n ? 'visible' : 'hidden');
 
     }
+
+{#        {% if current_user.is_authenticated %}#}
+{#        $(function() {#}
+{#            setInterval(function() {#}
+{#                $.ajax('/notifications').done(#}
+{#                    function(notifications) {#}
+{#                        set_message_count(notifications.data);#}
+{#                    }#}
+{#                );#}
+{#            }, 10000);#}
+{#        });#}
+{#        {% endif %}#}
+        {% if current_user.is_authenticated %}
+        $(function() {
+            var since = 0;
+            setInterval(function() {
+                $.ajax('{{ url_for('main.notifications') }}?since=' + since).done(
+                    function(notifications) {
+                        for (var i = 0; i < notifications.length; i++) {
+                            if (notifications[i].name == 'unread_message_count')
+                                set_message_count(notifications[i].data);
+                            since = notifications[i].time_stamp;
+                        }
+                    }
+                );
+            }, 10000);
+        });
+        {% endif %}
     </script>
 {% endblock %}
