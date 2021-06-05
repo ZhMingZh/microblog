@@ -199,13 +199,13 @@ def messages():
 @bp.route('/notifications')
 @login_required
 def notifications():
-    since = request.args.get('since', 0.0, type=float)
+    since = request.args.get('since', 0, type=int)
     notifications = current_user.notifications.filter(
         Notification.time_stamp > since).order_by(Notification.time_stamp.asc())
     return jsonify([{
         'name': n.name,
         'data': n.get_data(),
-        'time_stamp': n.time_stamp
+        'time_stamp': int(n.time_stamp)
     }for n in notifications])
     # return jsonify(
     #     {'data': current_user.new_messages()}
