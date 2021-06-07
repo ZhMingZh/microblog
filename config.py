@@ -26,3 +26,5 @@ class Config:
     # 邮件发送者
     ADMINS = os.environ.get('ADMINS')
 
+    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
+
