@@ -13,7 +13,6 @@
                 {% if user == current_user %}
                 <p><a href="{{ url_for('main.edit_profile') }}">{{ _('Edit your profile') }}</a></p>
                 {% if not current_user.get_task_in_progress('export_posts') %}
-                    <a>
                         <a href="{{ url_for('main.export_posts') }}">
                            {{ _('Export your posts') }}
                         </a>
